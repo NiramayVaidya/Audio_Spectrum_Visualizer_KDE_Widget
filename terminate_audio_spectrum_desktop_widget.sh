@@ -1,0 +1,3 @@
+# kill -9 $(ps -ef | grep -m 1 "/bin/sh -c python3 /home/niramay/Documents/custom_desktop_widgets/Audio_Spectrum_Visualizer/run_FFT_analyzer.py > /tmp/audio_spectrum_failed_output.txt" | awk '{ print $2 }')
+ppid=$(ps -ef | grep -m 1 "/bin/sh -c python3 /home/niramay/Documents/custom_desktop_widgets/Audio_Spectrum_Visualizer/run_FFT_analyzer.py > /tmp/audio_spectrum_failed_output.txt" | awk '{ print $2 }')
+kill -9 $(ps --ppid $ppid | tail -1 | awk '{ print $1 }')
